@@ -1,0 +1,23 @@
+{
+  "name": "@carry/cli",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "bin": {
+    "carry": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest run tests/cli.test.ts",
+    "lint": "tsc --noEmit -p tsconfig.json"
+  },
+  "dependencies": {
+    "@carry/sdk-js": "workspace:*",
+    "@carry/spec": "workspace:*",
+    "commander": "^14.0.1",
+    "tsx": "^4.20.6"
+  }
+}
