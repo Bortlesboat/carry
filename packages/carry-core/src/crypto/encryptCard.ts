@@ -1,4 +1,4 @@
-import { webcrypto } from "node:crypto";
+import { toBase64 } from "./encoding";
 
 export type EncryptedCard = {
   algorithm: "AES-GCM";
@@ -9,12 +9,17 @@ export type EncryptedCard = {
 
 const encoder = new TextEncoder();
 
-function toBase64(bytes: Uint8Array): string {
-  return Buffer.from(bytes).toString("base64");
+function getCryptoApi(): Crypto {
+  if (!globalThis.crypto) {
+    throw new Error("Web Crypto is unavailable in this runtime");
+  }
+
+  return globalThis.crypto;
 }
 
-async function deriveKey(passphrase: string, salt: Uint8Array): Promise<CryptoKey> {
-  const keyMaterial = await webcrypto.subtle.importKey(
+async function deriveKey(passphrase: string, salt: Uint8Array<ArrayBuffer>): Promise<CryptoKey> {
+  const cryptoApi = getCryptoApi();
+  const keyMaterial = await cryptoApi.subtle.importKey(
     "raw",
     encoder.encode(passphrase),
     "PBKDF2",
@@ -22,7 +27,7 @@ async function deriveKey(passphrase: string, salt: Uint8Array): Promise<CryptoKe
     ["deriveKey"]
   );
 
-  return webcrypto.subtle.deriveKey(
+  return cryptoApi.subtle.deriveKey(
     {
       name: "PBKDF2",
       salt,
@@ -40,11 +45,15 @@ async function deriveKey(passphrase: string, salt: Uint8Array): Promise<CryptoKe
 }
 
 export async function encryptCard(payload: unknown, passphrase: string): Promise<EncryptedCard> {
-  const iv = webcrypto.getRandomValues(new Uint8Array(12));
-  const salt = webcrypto.getRandomValues(new Uint8Array(16));
+  const cryptoApi = getCryptoApi();
+  const iv = new Uint8Array(12);
+  const salt = new Uint8Array(16);
+
+  cryptoApi.getRandomValues(iv);
+  cryptoApi.getRandomValues(salt);
   const key = await deriveKey(passphrase, salt);
   const plaintext = encoder.encode(JSON.stringify(payload));
-  const ciphertext = await webcrypto.subtle.encrypt({ name: "AES-GCM", iv }, key, plaintext);
+  const ciphertext = await cryptoApi.subtle.encrypt({ name: "AES-GCM", iv }, key, plaintext);
 
   return {
     algorithm: "AES-GCM",

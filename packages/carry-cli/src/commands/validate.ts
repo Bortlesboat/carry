@@ -1,4 +1,4 @@
-import { loadCard } from "@carry/sdk-js";
+import { loadCard } from "@carry/sdk-js/node";
 
 export async function validateCommand(file: string): Promise<void> {
   await loadCard(file);

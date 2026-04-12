@@ -4,9 +4,12 @@
   "version": "0.1.0",
   "packageManager": "pnpm@10.6.0",
   "scripts": {
+    "demo": "pnpm --filter @carry/demo dev",
     "build": "pnpm -r build",
-    "test": "pnpm -r test",
-    "lint": "pnpm -r lint"
+    "test": "pnpm exec vitest run tests/workspace/workspace-layout.test.ts tests/compatibility/carry-compatible.test.ts && pnpm -r test",
+    "test:e2e": "pnpm --filter @carry/demo playwright",
+    "lint": "pnpm -r lint",
+    "verify": "pnpm lint && pnpm test && pnpm build && pnpm test:e2e"
   },
   "devDependencies": {
     "@types/node": "^24.0.0",

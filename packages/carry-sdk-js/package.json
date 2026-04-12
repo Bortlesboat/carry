@@ -4,11 +4,12 @@
   "type": "module",
   "main": "./src/index.ts",
   "exports": {
-    ".": "./src/index.ts"
+    ".": "./src/index.ts",
+    "./node": "./src/node.ts"
   },
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "test": "vitest run tests/sdk.test.ts",
+    "test": "vitest run",
     "lint": "tsc --noEmit -p tsconfig.json"
   },
   "dependencies": {

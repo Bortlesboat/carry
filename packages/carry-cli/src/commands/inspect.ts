@@ -1,4 +1,4 @@
-import { loadCard } from "@carry/sdk-js";
+import { loadCard } from "@carry/sdk-js/node";
 
 export async function inspectCommand(file: string): Promise<void> {
   const card = await loadCard(file);

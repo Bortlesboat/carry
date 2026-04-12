@@ -1,4 +1,6 @@
 import Ajv from "ajv";
+import type { CarryClaim } from "./claims";
+import type { CarryConsentPack } from "./consent";
 
 export type CarryCard = {
   identity: {
@@ -25,6 +27,8 @@ export type CarryCard = {
     confirmed_at: string;
     stability: "stable" | "review" | "volatile";
   }>;
+  consent?: CarryConsentPack;
+  claims?: CarryClaim[];
 };
 
 export type ValidationResult = {
@@ -87,6 +91,44 @@ export const carryCardSchema = {
           source: { type: "string", minLength: 1 },
           confirmed_at: { type: "string", minLength: 1 },
           stability: { enum: ["stable", "review", "volatile"] }
+        }
+      }
+    },
+    consent: {
+      type: "object",
+      additionalProperties: false,
+      required: ["default_mode", "share_rules"],
+      properties: {
+        default_mode: {
+          enum: ["allow", "ask-first", "deny"]
+        },
+        share_rules: {
+          type: "array",
+          items: {
+            type: "object",
+            additionalProperties: false,
+            required: ["field", "action"],
+            properties: {
+              field: { type: "string", minLength: 1 },
+              action: { enum: ["allow", "ask-first", "deny"] }
+            }
+          }
+        }
+      }
+    },
+    claims: {
+      type: "array",
+      items: {
+        type: "object",
+        additionalProperties: false,
+        required: ["type", "disclosure"],
+        properties: {
+          type: { type: "string", minLength: 1 },
+          value: {
+            anyOf: [{ type: "string" }, { type: "number" }, { type: "boolean" }]
+          },
+          issuer: { type: "string", minLength: 1 },
+          disclosure: { enum: ["selective", "ask-first"] }
         }
       }
     }

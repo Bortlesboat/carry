@@ -1,4 +1,6 @@
 import { Command } from "commander";
+import { bridgeCommand } from "./commands/bridge";
+import { compatCommand } from "./commands/compat";
 import { initCommand } from "./commands/init";
 import { inspectCommand } from "./commands/inspect";
 import { shareCommand } from "./commands/share";
@@ -8,6 +10,22 @@ export function createProgram(): Command {
   const program = new Command();
 
   program.name("carry");
+
+  program
+    .command("bridge")
+    .argument("<file>")
+    .requiredOption("--source <source>")
+    .action(async (file: string, options: { source: string }) => {
+      await bridgeCommand(file, options.source as never);
+    });
+
+  program
+    .command("compat")
+    .argument("<file>")
+    .requiredOption("--source <source>")
+    .action(async (file: string, options: { source: string }) => {
+      await compatCommand(file, options.source as never);
+    });
 
   program
     .command("init")

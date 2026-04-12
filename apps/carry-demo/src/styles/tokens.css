@@ -1,0 +1,14 @@
+:root {
+  --font-sans: "Aptos", "Segoe UI Variable Display", "SF Pro Display", sans-serif;
+  --bg: #f6f2ea;
+  --surface: rgba(255, 252, 247, 0.85);
+  --surface-strong: #fffdf8;
+  --text: #1d1a17;
+  --muted: #6e675f;
+  --line: rgba(33, 28, 24, 0.08);
+  --accent: #1f4e46;
+  --accent-soft: rgba(31, 78, 70, 0.1);
+  --shadow: 0 24px 60px rgba(31, 26, 23, 0.08);
+  --radius-xl: 28px;
+  --radius-lg: 22px;
+}

@@ -7,7 +7,7 @@
     ".": "./src/index.ts"
   },
   "bin": {
-    "carry": "./dist/index.js"
+    "carry": "./bin/carry.js"
   },
   "scripts": {
     "build": "tsc -p tsconfig.json",

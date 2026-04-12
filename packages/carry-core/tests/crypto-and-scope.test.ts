@@ -5,7 +5,10 @@ import { decryptCard, derivePairwiseId, encryptCard, selectScopes, signCard, ver
 describe("carry core", () => {
   it("round-trips encrypted card payloads", async () => {
     const encrypted = await encryptCard({ identity: { display_name: "Andy" } }, "test-passphrase");
-    const decrypted = await decryptCard(encrypted, "test-passphrase");
+    const decrypted = await decryptCard<{ identity: { display_name: string } }>(
+      encrypted,
+      "test-passphrase"
+    );
     expect(decrypted.identity.display_name).toBe("Andy");
   });
 

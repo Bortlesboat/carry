@@ -41,3 +41,42 @@ export const powerUserExampleCard: CarryCard = {
     communication_style: "direct and concise"
   }
 };
+
+export const migrationReadyExampleCard: CarryCard = {
+  ...professionalExampleCard,
+  consent: {
+    default_mode: "ask-first",
+    share_rules: [
+      { field: "identity.display_name", action: "allow" },
+      { field: "identity.timezone", action: "allow" },
+      { field: "core_truths.summary", action: "ask-first" }
+    ]
+  },
+  claims: [
+    {
+      type: "prefers_direct_communication",
+      value: true,
+      issuer: "self-asserted",
+      disclosure: "selective"
+    }
+  ]
+};
+
+export const privacyFirstExampleCard: CarryCard = {
+  ...minimalExampleCard,
+  consent: {
+    default_mode: "deny",
+    share_rules: [
+      { field: "identity.display_name", action: "allow" },
+      { field: "preferences.communication_style", action: "ask-first" }
+    ]
+  },
+  claims: [
+    {
+      type: "timezone_confirmed",
+      value: true,
+      issuer: "self-asserted",
+      disclosure: "ask-first"
+    }
+  ]
+};

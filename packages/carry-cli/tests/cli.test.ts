@@ -1,4 +1,4 @@
-import { mkdtemp, readFile, rm } from "node:fs/promises";
+import { mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { exec } from "node:child_process";
@@ -61,5 +61,33 @@ describe("carry cli", () => {
     expect(result.stdout).toContain("\"provider_id\": \"anthropic.com\"");
     expect(result.stdout).toContain("\"identity\"");
     expect(result.stdout).not.toContain("\"preferences\"");
+  });
+
+  it("bridges a provider export into carry json", async () => {
+    const dir = await mkdtemp(join(tmpdir(), "carry-cli-"));
+    createdDirs.push(dir);
+    const exportFile = join(dir, "chatgpt-export.json");
+    await writeFile(
+      exportFile,
+      JSON.stringify({ memories: ["Prefers direct communication"] }, null, 2)
+    );
+
+    const result = await runCli(["bridge", exportFile, "--source", "chatgpt"]);
+
+    expect(result.stdout).toContain("\"communication_style\": \"direct\"");
+  });
+
+  it("reports carry compatibility", async () => {
+    const dir = await mkdtemp(join(tmpdir(), "carry-cli-"));
+    createdDirs.push(dir);
+    const exportFile = join(dir, "chatgpt-export.json");
+    await writeFile(
+      exportFile,
+      JSON.stringify({ memories: ["Prefers direct communication"] }, null, 2)
+    );
+
+    const result = await runCli(["compat", exportFile, "--source", "chatgpt"]);
+
+    expect(result.stdout).toContain("Carry Compatible");
   });
 });

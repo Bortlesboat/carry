@@ -1,5 +1,22 @@
-import { createHmac } from "node:crypto";
+import { toHex } from "./encoding";
+
+const encoder = new TextEncoder();
 
 export async function signCard(payload: unknown, secret: string): Promise<string> {
-  return createHmac("sha256", secret).update(JSON.stringify(payload)).digest("hex");
+  if (!globalThis.crypto) {
+    throw new Error("Web Crypto is unavailable in this runtime");
+  }
+
+  const key = await globalThis.crypto.subtle.importKey(
+    "raw",
+    encoder.encode(secret),
+    {
+      name: "HMAC",
+      hash: "SHA-256"
+    },
+    false,
+    ["sign"]
+  );
+  const signature = await globalThis.crypto.subtle.sign("HMAC", key, encoder.encode(JSON.stringify(payload)));
+  return toHex(signature);
 }

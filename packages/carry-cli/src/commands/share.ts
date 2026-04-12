@@ -1,5 +1,6 @@
-import { loadCard, prepareImportBundle } from "@carry/sdk-js";
 import type { CarryScope } from "@carry/sdk-js";
+import { prepareImportBundle } from "@carry/sdk-js";
+import { loadCard } from "@carry/sdk-js/node";
 
 export async function shareCommand(file: string, providerId: string, scopes: CarryScope[]): Promise<void> {
   const card = await loadCard(file);
