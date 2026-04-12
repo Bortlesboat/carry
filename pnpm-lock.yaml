@@ -24,6 +24,15 @@ importers:
         specifier: workspace:*
         version: link:../carry-spec
 
+  packages/carry-sdk-js:
+    dependencies:
+      '@carry/core':
+        specifier: workspace:*
+        version: link:../carry-core
+      '@carry/spec':
+        specifier: workspace:*
+        version: link:../carry-spec
+
   packages/carry-spec:
     dependencies:
       ajv:
