@@ -36,6 +36,7 @@ That means:
 - maintainers merge day-to-day reference implementation work
 - issues are for actionable work
 - discussions are for core-shape, governance, and compatibility questions
+- normative and compatibility-shaping proposals should follow [docs/rfcs/0001-rfc-process.md](./docs/rfcs/0001-rfc-process.md)
 - breaking core changes should include a public rationale, migration story, and compatibility impact
 
 ## Anti-Capture Rules

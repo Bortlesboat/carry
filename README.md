@@ -47,6 +47,11 @@ Today the project is founder-stewarded. Over time, the goal is shared governance
 - contributing: [CONTRIBUTING.md](./CONTRIBUTING.md)
 - why Carry: [docs/why-carry.md](./docs/why-carry.md)
 - compatibility: [docs/compatibility.md](./docs/compatibility.md)
+- compatibility levels: [docs/compatibility-levels.md](./docs/compatibility-levels.md)
+- design principles: [docs/design-principles.md](./docs/design-principles.md)
+- roadmap: [docs/roadmap.md](./docs/roadmap.md)
+- RFC process: [docs/rfcs/0001-rfc-process.md](./docs/rfcs/0001-rfc-process.md)
+- security: [SECURITY.md](./SECURITY.md)
 - seed discussions: [docs/community/seed-discussions.md](./docs/community/seed-discussions.md)
 - seed issues: [docs/community/seed-issues.md](./docs/community/seed-issues.md)
 
@@ -120,11 +125,14 @@ That is enough to start real conversations with developers, standards-minded AI 
 
 ## Roadmap
 
-- Signed cards and tamper-evident updates
-- Encrypted export and recovery flows
-- Provider capability manifests
-- Native import flows for web, desktop, and mobile assistants
-- Community-owned interoperability test suite
+The fuller roadmap lives in [docs/roadmap.md](./docs/roadmap.md).
+
+Near-term priorities:
+
+- provider capability manifests
+- clearer compatibility levels and builder targeting
+- more migration-ready examples and adoption docs
+- eventual community-owned interoperability testing
 
 ## Contributing
 

@@ -1,6 +1,16 @@
 # Carry Compatibility
 
-`Carry Compatible` means a tool can take a provider-specific export, normalize it into `Carry`, and produce a valid `Carry` profile without inventing a private schema.
+`Carry Compatible` is a staged claim.
+
+The full ladder lives in [docs/compatibility-levels.md](./compatibility-levels.md).
+
+At a high level:
+
+- `Level 1: Carry Export Ready`
+- `Level 2: Carry Bridge Ready`
+- `Level 3: Carry Native`
+
+The current reference implementation in this repo is centered on the `Level 2: Carry Bridge Ready` story.
 
 ## Current Bar
 
@@ -21,6 +31,8 @@
 The compatibility suite is the start of the adoption wedge.
 
 If builders target the same fixtures and contract, users get portability and `Carry` becomes the default profile layer they expect AI tools to support.
+
+The levels matter because they let projects adopt `Carry` honestly and incrementally instead of waiting for an all-or-nothing partnership or badge.
 
 ## Builder Loop
 

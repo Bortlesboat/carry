@@ -15,6 +15,9 @@ The project is trying to become the open portability profile for AI, so the best
 
 ## Where To Start
 
+- read [docs/design-principles.md](./docs/design-principles.md) for the core guardrails
+- read [docs/compatibility-levels.md](./docs/compatibility-levels.md) before making compatibility claims
+- read [docs/rfcs/0001-rfc-process.md](./docs/rfcs/0001-rfc-process.md) for normative or compatibility-shaping proposals
 - use [docs/community/seed-discussions.md](./docs/community/seed-discussions.md) for big questions about what belongs in the standard
 - use [docs/community/seed-issues.md](./docs/community/seed-issues.md) for concrete near-term work
 - read [GOVERNANCE.md](./GOVERNANCE.md) before proposing breaking core changes

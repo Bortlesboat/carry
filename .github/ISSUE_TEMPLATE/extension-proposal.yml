@@ -1,0 +1,45 @@
+name: Extension proposal
+description: Propose a new Carry extension, profile, or non-core addition.
+title: "[extension] "
+labels:
+  - proposal
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this template for ideas that may belong in an extension, profile, or mapping guide rather than the core spec.
+  - type: input
+    id: name
+    attributes:
+      label: Extension or proposal name
+      placeholder: Provider capability manifest
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem statement
+      description: What real portability or compatibility problem does this solve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed shape
+      description: Describe the data, workflow, or behavior you want to add.
+    validations:
+      required: true
+  - type: textarea
+    id: why_not_core
+    attributes:
+      label: Why should this stay outside the core?
+      description: Explain why this is better as an extension, profile, or mapping guide.
+    validations:
+      required: true
+  - type: textarea
+    id: compatibility
+    attributes:
+      label: Compatibility and migration impact
+      description: Note whether this changes claims, schema, adapters, or user expectations.
+    validations:
+      required: false

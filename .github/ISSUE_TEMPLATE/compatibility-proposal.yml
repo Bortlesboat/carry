@@ -1,0 +1,56 @@
+name: Compatibility proposal
+description: Propose or document a new Carry compatibility target, adapter, or product claim.
+title: "[compat] "
+labels:
+  - compatibility
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this template when proposing a new `Carry Compatible` target, adapter surface, or compatibility claim.
+  - type: input
+    id: project
+    attributes:
+      label: Project or product name
+      placeholder: Example AI App
+    validations:
+      required: true
+  - type: input
+    id: repo
+    attributes:
+      label: Repository or docs link
+      placeholder: https://github.com/example/project
+    validations:
+      required: false
+  - type: dropdown
+    id: level
+    attributes:
+      label: Target compatibility level
+      options:
+        - Level 1: Carry Export Ready
+        - Level 2: Carry Bridge Ready
+        - Level 3: Carry Native
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What should become compatible?
+      description: Describe the flow, product surface, or adapter target.
+      placeholder: Export from X, bridge into Carry, then import into Y.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Current evidence or implementation status
+      description: Share links, screenshots, fixtures, or notes that show what already exists.
+    validations:
+      required: false
+  - type: textarea
+    id: gaps
+    attributes:
+      label: Known gaps or open questions
+      description: Call out mapping gaps, privacy concerns, or unclear compatibility edges.
+    validations:
+      required: false
