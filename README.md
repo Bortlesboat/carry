@@ -45,6 +45,8 @@ Today the project is founder-stewarded. Over time, the goal is shared governance
 
 - governance: [GOVERNANCE.md](./GOVERNANCE.md)
 - contributing: [CONTRIBUTING.md](./CONTRIBUTING.md)
+- why Carry: [docs/why-carry.md](./docs/why-carry.md)
+- compatibility: [docs/compatibility.md](./docs/compatibility.md)
 - seed discussions: [docs/community/seed-discussions.md](./docs/community/seed-discussions.md)
 - seed issues: [docs/community/seed-issues.md](./docs/community/seed-issues.md)
 
