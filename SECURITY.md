@@ -19,9 +19,10 @@ Please do not post full exploit details publicly in Issues, Discussions, or PRs.
 
 Preferred path:
 
-- use GitHub's private vulnerability reporting for this repository if it is available
+- use GitHub private vulnerability reporting for this repository:
+  `https://github.com/Bortlesboat/carry/security/advisories/new`
 
-Fallback path if private reporting is not available:
+Fallback path if the private GitHub flow is temporarily unavailable:
 
 - open a minimal public issue titled `Security contact requested`
 - include only high-level impact and affected surface

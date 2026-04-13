@@ -1,0 +1,57 @@
+name: Bug report
+description: Report a bug in the Carry repo, demo, CLI, docs, or compatibility flow.
+title: "[bug] "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this template for normal product, docs, demo, or tooling bugs.
+
+        If the issue could expose sensitive data, identity correlation risks, or a privacy/security vulnerability, please use the private reporting path linked in `SECURITY.md` instead of filing it publicly.
+  - type: textarea
+    id: summary
+    attributes:
+      label: What happened?
+      description: Give a short summary of the bug and the affected surface.
+      placeholder: `carry compat` reports success locally but fails on a valid fixture.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Share the smallest set of steps needed to hit the problem.
+      placeholder: |
+        1. Run ...
+        2. Open ...
+        3. See ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      placeholder: Windows 11, Node 22, pnpm 10, Chromium
+    validations:
+      required: false
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Logs, screenshots, or repro artifacts
+      description: Share anything that helps confirm the issue quickly.
+    validations:
+      required: false
