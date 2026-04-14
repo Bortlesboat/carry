@@ -48,6 +48,7 @@ Today the project is founder-stewarded. Over time, the goal is shared governance
 - why Carry: [docs/why-carry.md](./docs/why-carry.md)
 - compatibility: [docs/compatibility.md](./docs/compatibility.md)
 - compatibility levels: [docs/compatibility-levels.md](./docs/compatibility-levels.md)
+- capability manifest draft: [docs/adoption/provider-capability-manifest.md](./docs/adoption/provider-capability-manifest.md)
 - design principles: [docs/design-principles.md](./docs/design-principles.md)
 - roadmap: [docs/roadmap.md](./docs/roadmap.md)
 - RFC process: [docs/rfcs/0001-rfc-process.md](./docs/rfcs/0001-rfc-process.md)

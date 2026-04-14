@@ -61,6 +61,7 @@ Projects should only claim the highest level they can support with public eviden
 That evidence can include:
 
 - repo docs
+- a published capability manifest
 - compatibility test output
 - example flows
 - product screenshots or demos

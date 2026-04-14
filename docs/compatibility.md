@@ -34,6 +34,23 @@ If builders target the same fixtures and contract, users get portability and `Ca
 
 The levels matter because they let projects adopt `Carry` honestly and incrementally instead of waiting for an all-or-nothing partnership or badge.
 
+## Capability Manifest Draft
+
+Compatibility levels tell people how strong a `Carry Compatible` claim is.
+
+The capability manifest draft tells them what that claim includes:
+
+- import Carry
+- export provider data in a Carry-mappable way
+- bridge into or out of Carry
+- support consent-aware and scoped workflows
+- declare verified targets and mapping gaps
+
+Reference draft:
+
+- guide: [docs/adoption/provider-capability-manifest.md](./adoption/provider-capability-manifest.md)
+- example manifest: [packages/carry-spec/examples/reference-bridge.manifest.json](../packages/carry-spec/examples/reference-bridge.manifest.json)
+
 ## Builder Loop
 
 Use the first-party tools to prove the same workflow other apps can adopt:

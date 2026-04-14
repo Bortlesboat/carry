@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import * as examples from "../src/examples";
-import { minimalExampleCard } from "../src/examples";
-import { validateCard } from "../src/schema";
+import { minimalExampleCard, referenceBridgeManifest } from "../src/examples";
+import { validateCapabilityManifest, validateCard } from "../src/schema";
 
 describe("AI Self Card schema", () => {
   it("accepts the minimal example", () => {
@@ -51,5 +51,40 @@ describe("AI Self Card schema", () => {
   it("validates the privacy-first example", () => {
     const candidate = (examples as { privacyFirstExampleCard?: unknown }).privacyFirstExampleCard;
     expect(validateCard(candidate).valid).toBe(true);
+  });
+
+  it("validates the reference capability manifest", () => {
+    expect(validateCapabilityManifest(referenceBridgeManifest).valid).toBe(true);
+  });
+
+  it("rejects manifests without public docs evidence", () => {
+    const candidate = {
+      manifest_version: "0.1",
+      subject: {
+        id: "example.provider",
+        name: "Example Provider",
+        type: "provider"
+      },
+      carry: {
+        compatibility_level: "level-1",
+        supported_scopes: ["identity"],
+        flows: {
+          import_carry_profile: false,
+          export_provider_data: true,
+          bridge_into_carry: false,
+          bridge_from_carry: false,
+          round_trip_workflows: false
+        },
+        controls: {
+          consent_rules: false,
+          scoped_sharing: false,
+          claims: false,
+          pairwise_ids: false
+        },
+        evidence: {}
+      }
+    };
+
+    expect(validateCapabilityManifest(candidate).valid).toBe(false);
   });
 });

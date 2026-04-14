@@ -1,4 +1,8 @@
 import Ajv from "ajv";
+import {
+  carryCapabilityManifestSchema,
+  type CarryCapabilityManifest
+} from "./capabilities";
 import type { CarryClaim } from "./claims";
 import type { CarryConsentPack } from "./consent";
 
@@ -137,11 +141,23 @@ export const carryCardSchema = {
 
 const ajv = new Ajv({ allErrors: true });
 const validator = ajv.compile<CarryCard>(carryCardSchema);
+const capabilityManifestValidator = ajv.compile<CarryCapabilityManifest>(carryCapabilityManifestSchema);
 
 export function validateCard(candidate: unknown): ValidationResult {
   const valid = validator(candidate);
   return {
     valid: Boolean(valid),
     errors: validator.errors?.map((error) => `${error.instancePath || "/"} ${error.message}`) ?? []
+  };
+}
+
+export function validateCapabilityManifest(candidate: unknown): ValidationResult {
+  const valid = capabilityManifestValidator(candidate);
+  return {
+    valid: Boolean(valid),
+    errors:
+      capabilityManifestValidator.errors?.map(
+        (error) => `${error.instancePath || "/"} ${error.message}`
+      ) ?? []
   };
 }
