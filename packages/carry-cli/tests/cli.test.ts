@@ -1,18 +1,20 @@
 import { mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
-import { join } from "node:path";
+import { dirname, join, resolve } from "node:path";
 import { exec } from "node:child_process";
 import { promisify } from "node:util";
+import { fileURLToPath } from "node:url";
 import { afterEach, describe, expect, it } from "vitest";
 
 const execAsync = promisify(exec);
 const createdDirs: string[] = [];
+const cliPackageDir = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 
 async function runCli(args: string[]) {
   const escapedArgs = args.map((arg) => `"${arg.replace(/"/g, '\\"')}"`).join(" ");
   const command = `pnpm exec tsx src/cli.ts ${escapedArgs}`;
   return execAsync(command, {
-    cwd: "C:/Users/andre/OneDrive/Documents/Playground/carry/packages/carry-cli"
+    cwd: cliPackageDir
   });
 }
 
