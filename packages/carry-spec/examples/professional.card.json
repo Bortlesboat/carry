@@ -1,8 +1,8 @@
 {
   "identity": {
-    "display_name": "Andy",
-    "root_id": "carry.example.andy.pro",
-    "timezone": "America/New_York",
+    "display_name": "Sam Rivera",
+    "root_id": "carry.example.sam.pro",
+    "timezone": "America/Denver",
     "locale": "en-US"
   },
   "core_truths": {

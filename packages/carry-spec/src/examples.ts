@@ -3,9 +3,9 @@ import type { CarryCard } from "./schema";
 
 export const minimalExampleCard: CarryCard = {
   identity: {
-    display_name: "Andy",
-    root_id: "carry.example.andy",
-    timezone: "America/New_York",
+    display_name: "Sam Rivera",
+    root_id: "carry.example.sam",
+    timezone: "America/Denver",
     locale: "en-US"
   },
   core_truths: {

@@ -61,13 +61,13 @@ Today the project is founder-stewarded. Over time, the goal is shared governance
 ```json
 {
   "identity": {
-    "display_name": "Andy",
-    "root_id": "carry.example.andy",
-    "timezone": "America/New_York",
+    "display_name": "Sam Rivera",
+    "root_id": "carry.example.sam",
+    "timezone": "America/Denver",
     "locale": "en-US"
   },
   "core_truths": {
-    "summary": "Born in 1990, works best with direct communication, and prefers privacy-first tools."
+    "summary": "Works best with direct communication and prefers privacy-first tools."
   },
   "preferences": {
     "communication_style": "direct"
@@ -99,9 +99,9 @@ pnpm demo
 Create and inspect a card:
 
 ```bash
-pnpm --filter @carry/cli exec carry init --template minimal --out ./andy.card.json
-pnpm --filter @carry/cli exec carry validate ./andy.card.json
-pnpm --filter @carry/cli exec carry inspect ./andy.card.json
+pnpm --filter @carry/cli exec carry init --template minimal --out ./sam.card.json
+pnpm --filter @carry/cli exec carry validate ./sam.card.json
+pnpm --filter @carry/cli exec carry inspect ./sam.card.json
 ```
 
 Bridge an existing provider export into Carry:
